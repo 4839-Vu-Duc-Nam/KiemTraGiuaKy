@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TOEIC Reading Exam Workspace
 
 This starter implementation follows the midterm brief: an ASP.NET Core backend, SQL Server storage, a teacher workspace, and a responsive student test interface.
@@ -58,3 +59,6 @@ Repeat the question blocks until the exam has 100 questions. Part 5 questions ar
 - The API enforces the exam deadline and grades answers on the server.
 
 This coursework prototype intentionally has no login; the learner name is recorded with each attempt for identification. Before production deployment, replace `EnsureCreated` with EF Core migrations and configure operational hosting and database security.
+=======
+# KiemTraGiuaKy
+>>>>>>> 86d224c429a6f0c910caf63020bd033a9dd38ca2
