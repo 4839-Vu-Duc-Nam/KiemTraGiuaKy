@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c59">
+  <title>TOEIC Reading</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="TOEIC Reading">
+      <span class="brand-mark">TR</span>
+      <span>TOEIC <strong>Reading</strong><small>Exam workspace</small></span>
+    </a>
+    <nav class="tabs" aria-label="Khu vực ứng dụng">
+      <button class="tab active" data-view="admin">Giảng viên</button>
+      <button class="tab" data-view="learner">Thí sinh</button>
+    </nav>
+    <span class="status"><i></i> Hệ thống sẵn sàng</span>
+  </header>
+
+  <main>
+    <section id="admin-view" class="view">
+      <div class="page-heading">
+        <div><p class="eyebrow">QUẢN TRỊ KỲ THI</p><h1>Không gian giảng viên</h1>
+          <p class="muted">Tải đề Word, xem trước cấu trúc, xuất bản và theo dõi kết quả.</p></div>
+        <div class="heading-icon">▤</div>
+      </div>
+
+      <div class="admin-grid">
+        <section class="panel upload-panel">
+          <div class="panel-title"><div><span class="step">01</span><h2>Import đề thi</h2></div><span class="badge">DOCX · tối đa 10 MB</span></div>
+          <p class="muted">Tệp chỉ được lưu khi đủ 100 câu và toàn bộ tag, đáp án, gợi ý hợp lệ.</p>
+          <form id="upload-form" class="upload-box">
+            <label for="docx-file" class="upload-icon">↑</label>
+            <label for="docx-file" class="upload-title">Chọn file đề thi .docx</label>
+            <span id="file-name" class="muted small">hoặc kéo file vào đây</span>
+            <input id="docx-file" name="file" type="file" accept=".docx" required>
+            <button class="button primary" type="submit">Kiểm tra &amp; import</button>
+          </form>
+          <div id="import-message" class="message" aria-live="polite"></div>
+          <details class="tag-help">
+            <summary>Xem quy ước tag của file Word</summary>
+            <p>Dùng mỗi tag trên một đoạn riêng. Cú pháp đầy đủ có trong <code>README.md</code>.</p>
+            <pre>[EXAM]
+Title: TOEIC Reading practice
+DurationMinutes: 75
+[QUESTION part=5 shuffleQuestions=true shuffleAnswers=true]
+Prompt: ...
+A) ...
+B) ...
+C) ...
+D) ...
+Correct: B
+Hint: ...
+[/QUESTION]
+[/EXAM]</pre>
+          </details>
+        </section>
+
+        <section class="panel exams-panel">
+          <div class="panel-title"><div><span class="step">02</span><h2>Ngân hàng đề</h2></div>
+            <button id="refresh-exams" class="button ghost small-button" type="button">Làm mới</button></div>
+          <div id="exam-list" class="exam-list"><p class="muted">Đang tải đề thi...</p></div>
+        </section>
+      </div>
+      <section id="admin-detail" class="panel detail-panel hidden"></section>
+    </section>
+
+    <section id="learner-view" class="view hidden">
+      <div id="learner-home">
+        <div class="page-heading">
+          <div><p class="eyebrow">LUYỆN THI TOEIC READING</p><h1>Chọn bài thi của bạn</h1>
+            <p class="muted">Bài thi có thời gian đếm ngược và tự động lưu câu trả lời.</p></div>
+          <div class="heading-icon">✎</div>
+        </div>
+        <section class="panel">
+          <label class="field-label" for="learner-name">Họ và tên thí sinh</label>
+          <input id="learner-name" class="text-input name-input" maxlength="100" placeholder="Nhập họ tên">
+          <div id="published-exams" class="exam-cards"></div>
+        </section>
+      </div>
+      <section id="test-screen" class="hidden"></section>
+      <section id="result-screen" class="hidden"></section>
+    </section>
+  </main>
+
+  <footer>TOEIC Reading · Bài thi được lưu tự động trong quá trình làm bài.</footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
